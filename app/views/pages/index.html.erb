@@ -1,0 +1,44 @@
+<h1>Listing pages</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Background color</th>
+    <th>Padding</th>
+    <th>Margin</th>
+    <th>Font</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pages.each do |page| %>
+  <tr>
+    <td><%= page.name %></td>
+    <td><%= page.title %></td>
+    <td><%= page.background_color %></td>
+    <td><%= page.padding %></td>
+    <td><%= page.margin %></td>
+    <td><%= page.font %></td>
+    <td><%= link_to 'Show', page %></td>
+    <td><%= link_to 'Edit', edit_page_path(page) %></td>
+    <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Page', new_page_path %>
+
+
+<div id="pages"></div>
+
+<script type="text/javascript">
+  $(function() {
+    // Blog is the app name
+    window.router = new Blog.Routers.PagesRouter({pages: <%= @pages.to_json.html_safe -%>});
+    Backbone.history.start();
+  });
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="A demo app integrating backbone.js with devise in Ruby on Rails">
+  <meta name="keywords" content="backbone.js,devise,javascript,ruby on rails,ruby">
+  <title dir="ltr">Backbone-Devise</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="container" id="main">
+    <div id="loading">Loading...</div>
+  </div>
+  <%= javascript_include_tag "application" %>
+  <script type="text/javascript">
+    <% if signed_in? -%>
+      BD.currentUser = new BD.Models.User(<%= current_user.to_json.html_safe %>);
+    <% else -%>
+      BD.currentUser = null;
+    <% end -%>
+    BD.start();
+  </script>
+</body>
+</html>

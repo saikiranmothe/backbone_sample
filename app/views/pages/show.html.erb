@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @page.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @page.title %>
+</p>
+
+<p>
+  <b>Background color:</b>
+  <%= @page.background_color %>
+</p>
+
+<p>
+  <b>Padding:</b>
+  <%= @page.padding %>
+</p>
+
+<p>
+  <b>Margin:</b>
+  <%= @page.margin %>
+</p>
+
+<p>
+  <b>Font:</b>
+  <%= @page.font %>
+</p>
+
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>
